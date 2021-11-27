@@ -2,28 +2,30 @@
 
 set -e
 
-rm -rf `pwd`/build/*
-cd `pwd`/build && cmake .. && make
-cd ..
-cp -r `pwd`/src/include `pwd`/lib
+# 如果没有build目录，创建该目录
+if [ ! -d `pwd`/build ]; then
+    mkdir `pwd`/build
+fi
 
-# dectect head file path is exit.
+rm -rf `pwd`/build/*
+
+cd `pwd`/build &&
+    cmake .. &&
+    make
+
+# 回到项目根目录
+cd ..
+
+# 把头文件拷贝到 /usr/include/mymuduo  so库拷贝到 /usr/lib    PATH
 if [ ! -d /usr/include/pearl_house ]; then 
     mkdir /usr/include/pearl_house
 fi
 
-cd `pwd`/src/include
-
-# copy head file into sysytem head file direction.
-for header in `ls *.hpp`
+for header in `ls *.h`
 do
     cp $header /usr/include/pearl_house
 done
 
-cd ..
-cd ..
-cp `pwd`/lib/libpearl_house.a /usr/lib
+cp `pwd`/lib/pearl_house.so /usr/lib
 
-
-# reload configure to  fresh system
 ldconfig

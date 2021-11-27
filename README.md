@@ -7,9 +7,6 @@ We define a code contracture as follow:
 
 
 
-## how to use it ? 
-1. 
-
 ## writing requirement:
 
 1. all knowledge should have a high-level quality, but it needs to have self understand and concise. If other articles are good for us, please make a cite.
