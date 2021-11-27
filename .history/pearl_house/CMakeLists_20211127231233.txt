@@ -17,4 +17,4 @@ link_directories(${LINK_DIR})
 
 
 # 加载子目录
-add_subdirectory(kernel/base_algorithm)
+add_subdirectory(base_algorithm)
