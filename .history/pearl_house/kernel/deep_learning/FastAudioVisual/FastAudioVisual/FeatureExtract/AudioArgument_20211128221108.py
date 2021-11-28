@@ -10,7 +10,7 @@ from scipy.fftpack import fft
 class argument_audio:
 
     ## ok 
-    def argument_wave(self, y, sr,n_steps=3,rate=1.2):
+    def argument_wave(y, sr,n_steps=3,rate=1.2):
         """Agument Audio feature
         :param y: np.ndarray [shape=(n,)], real-valued the input signal (audio time series)
         :param sr: sample rate of 'y'
@@ -24,7 +24,7 @@ class argument_audio:
         return  y_ps
 
 
-    def argument_mel(self, mel_spectrogram):
+    def argument_mel(mel_spectrogram):
         """
         Agument Mel feature 
         param y: np.ndarray [shape=(n,)], real-valued the input signal (audio time series)
@@ -47,7 +47,7 @@ class argument_audio:
         return  warped_masked_spectrogram
 
 
-    def argument_noise(self, signal, snr_low=15, snr_high=30, nb_augmented=2):
+    def ArgumentNoise(signal, snr_low=15, snr_high=30, nb_augmented=2):
         '''
         Function to add noise to a signals with a desired Signal Noise ratio (SNR)
         '''
